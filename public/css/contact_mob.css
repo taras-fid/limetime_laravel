@@ -1,0 +1,298 @@
+li {
+	list-style-type: none;
+}
+
+li a {
+	color: white;
+	font-family: 'Montserrat';
+}
+
+* {
+	margin: 0; 
+	text-decoration: none;
+	padding: 0;
+}
+
+body {
+	position: relative;
+	width: 100%;
+	overflow-x: hidden;
+	/*width: 375px;*/
+}
+
+.page {
+	background: url(../img/main_bg_mob.png) no-repeat;
+	background-size: 100% 100%;
+	height: 812px;
+}
+
+header {
+	background: black;
+	position: sticky;
+	width: 100%;
+	height: 70px;
+	top: 0px;
+	margin: 0 auto; /*позиционирование по центру*/
+	z-index: 9999;
+}
+
+.logo {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	height: 60%;
+	width: 36%;
+	top: 28%;
+	left: 5%;
+	color: white;
+}
+
+.logo_name {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	font-family: 'Montserrat';
+	font-weight: 100;
+	font-size: 20px;
+	letter-spacing: 0.245em;
+}
+
+.logo_phone {
+	position: relative;
+	font-family: 'Montserrat';
+	font-weight: 200;
+	font-size: 10px;
+	letter-spacing: 0.05em;
+}
+
+.menu_btn {
+	position: absolute;
+	top: 28%;
+	right: 5%;
+	height: 60%;
+	width: 11.2%;
+	background: url(../img/menu_btn_mob.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+/*Content*/
+
+.main_img {
+	position: relative;
+	width: 375px;
+	height: 55%;
+	background: url(../img/contact_mob_img_1.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.map_img {
+	position: relative;
+	width: 375px;
+	height: 36%;
+	background: url(../img/map_img_mob.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+/*menu*/
+
+.menu {
+	position: absolute;
+	background-color: #262525;
+	width: 250px;
+	height: 100vh;
+	top: 0px;
+	right: 0px;
+	margin: 0 auto;
+	z-index: 9999999;
+	transition: 0.5s;
+	transform: translateX(100%);
+}
+
+.menu_active {
+	position: absolute;
+	background-color: #262525;
+	width: 250px;
+	height: 100vh;
+	top: 0px;
+	right: 0px;
+	margin: 0 auto;
+	z-index: 9999999;
+	transition: 0.5s;
+	transform: translateX(0%);
+}
+
+.logo_menu {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	height: 15%;
+	width: 100%;
+	top: 2%;
+	color: white;
+}
+
+.logo_menu_name {
+	position: relative;
+	top: 0px;
+	width: 100%;
+	font-family: 'Montserrat';
+	font-weight: 100;
+	font-size: 20px;
+	letter-spacing: 0.245em;
+	text-align: center;
+	color: white;
+}
+
+.log_cart {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+	flex-wrap: wrap;
+	position: absolute;
+	top: 40%;
+	width: 100%;
+	left: 0px;
+}
+
+.log_cart a {
+	margin: 0px 20px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.log_cart img {
+	height: 20px;
+	color: black;
+	margin: 0px 5px;
+}
+
+.cart_btn {
+	background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.menu_list {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	position: absolute;
+	height: 35%;
+	weight: 100%;
+	left: 4%;
+	top: 20%;
+}
+
+.menu_list li a {
+	position: static;
+	top: 0px;
+
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0.05em;
+	text-align: center;
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 0px 13px;
+}
+
+.menu_footer {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	height: 35%;
+	width: 100%;
+	bottom: 0px;
+	background-color: #161616;
+}
+
+.menu_footer ul li {
+	height: 33.333%;
+	width: 100%;
+}
+
+.phone_footer {
+	position: relative;
+	top: 16px;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 13.5px;
+	letter-spacing: 0.05em;
+	color: white;
+}
+
+.phone_call h5 {
+	position: relative;
+	top: 24px;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	letter-spacing: 0.05em;
+	color: white;
+}
+
+.phone_call img {
+	position: relative;
+	top: 12px;
+	width: 41%;
+}
+
+.polit_conf {
+	position: absolute;
+	bottom: 0px;
+	font-family: 'Montserrat';
+	color: white;
+}
+
+.polit_conf h5 {
+	position: relative;
+	top: 50%;
+	left: 10%;
+	font-weight: 300;
+	letter-spacing: 0.05em;
+	font-size: 8px;
+}
+
+.adress {
+	position: absolute;
+	left: 10%;
+	top: 33.333%;
+	color: white;
+}
+
+.adress h5 {
+	position: relative;
+	top: 30%;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 13.5px;
+	letter-spacing: 0.05em;
+}
+
+@media (min-width: 380px) {
+	.map_img {
+		left: calc(50% - 185px);
+	}
+	.main_img {
+		left: calc(50% - 185px);
+	}
+}

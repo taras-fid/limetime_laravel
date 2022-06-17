@@ -11,7 +11,7 @@ class CatalogController extends Controller
     public function getCatalog() {
         $drinks = new Drink();
         $catalog = $drinks->all();
-        return view('catalog', ['drinks'=>$catalog]);
+        return view('catalog', ['drinks'=>$catalog->sortByDesc('stars')]);
     }
 
     public function addCart(Request $request) {
@@ -116,5 +116,11 @@ class CatalogController extends Controller
         $drinks = new Drink();
         $catalog = $drinks->all();
         return redirect()->route('catalog.host', ['drinks' => $catalog]);
+    }
+
+    public function getCatalogMob() {
+        $drinks = new Drink();
+        $catalog = $drinks->all();
+        return view('mob_katalog', ['drinks'=>$catalog->sortByDesc('stars')]);
     }
 }

@@ -2,6 +2,9 @@
 $login_from_cookie = $_COOKIE['login'] ?? null;
 $cart_cost_from_cookie = $_COOKIE['cart_cost'] ?? 0;
 $message = $_COOKIE['message'] ?? null;
+if (isset($_COOKIE['mob_pc_ind'])){
+    unset($_COOKIE["mob_pc_ind"]);
+}setcookie("mob_pc_ind", 'pc', 0, '/');
 ?>
 
 
@@ -163,7 +166,7 @@ $message = $_COOKIE['message'] ?? null;
 						</h5>
 						<img src="/img/line2_page1.png" alt="line for url more info about lemonade">
 						<h2>
-							60 ₴ / 250 мл
+							30 ₴ / 250 мл
 						</h2>
 					</div>
 				</div>
@@ -187,7 +190,7 @@ $message = $_COOKIE['message'] ?? null;
                                             <div class="pos_1">
                                                 <ul class="stars_row">
                                                     @if($drink->stars)
-                                                        @for($i = 0; $i < $drink->stars; $i++)
+                                                        @for($i = 0; $i < intval($drink->stars); $i++)
                                                             <li><img src="/img/star_icon.png" alt=""></li>
                                                         @endfor
                                                     @endif
@@ -282,216 +285,33 @@ $message = $_COOKIE['message'] ?? null;
 						</li>
 						<li><img src="/img/r_line_page4.png" alt="right line for page logo"></li>
 					</ul>
-					<ul class="page4_pos_4">
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-					    <li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-					    <li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-					    <li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-				   </ul>
-					<ul class="page4_pos_4">
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-					</ul>
-					<ul class="page4_pos_4">
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-						<li>
-							<ul class="review_infobox">
-								<img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
-								<h5>І'мя користувача</h5>
-								<ul class="stars_row">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-									<img src="/img/star_icon.png" alt="">
-								</ul>
-								<button>Докладніше</button>
-							</ul>
-							<h5 class="review_text">
-								текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку текст відгуку
-							</h5>
-						</li>
-					</ul>
+                    <ul class="page4_pos_4">
+                        @foreach($reviews as $review)
+                            @if($review->stars)
+                                <li>
+                                    <ul class="review_infobox">
+                                        <img class="user_icon" src="/img/login_icon.png" alt="customer`s icon pic">
+                                        @if($review->user)
+                                            <h5>{{$review->user->login}}</h5>
+                                        @else
+                                            <h5>Анонімний лимонадофан</h5>
+                                        @endif
+                                        @if($review->stars)
+                                            <ul class="stars_row">
+                                                @for($b = 0; $b < $review->stars; $b++)
+                                                    <img src="/img/star_icon.png" alt="">
+                                                @endfor
+                                            </ul>
+                                        @endif
+                                        <button>Докладніше</button>
+                                    </ul>
+                                    <h5 class="review_text">
+                                        {{$review->review_text}}
+                                    </h5>
+                                </li>
+                            @endif
+                       @endforeach
+                    </ul>
 				</div>
 			</page_4_bg>
 			<page_5_bg>
@@ -594,6 +414,10 @@ $message = $_COOKIE['message'] ?? null;
                         <form action="{{ route('index.cart.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ $drink->id }}" name="id">
+                            <input type="hidden" value="{{ $_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_250}"] }}" name="old_quantity">
+                            @if(isset($_COOKIE["name_cart_drink_{$drink->id}_{$drink->price_500}"]))
+                                <input type="hidden" value="{{ $_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_500}"] }}" name="new_quantity">
+                            @endif
                             <input type="hidden" value="{{ $drink->price_250 }}" name="old_price">
                             <input type="hidden" value="{{ $drink->price_500 }}" name="new_price">
                             <button class="change_btn">хо ще</button>
@@ -614,6 +438,10 @@ $message = $_COOKIE['message'] ?? null;
                         <form action="{{ route('index.cart.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ $drink->id }}" name="id">
+                            <input type="hidden" value="{{ $_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_500}"] }}" name="old_quantity">
+                            @if(isset($_COOKIE["name_cart_drink_{$drink->id}_{$drink->price_1000}"]))
+                                <input type="hidden" value="{{ $_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_1000}"] }}" name="new_quantity">
+                            @endif
                             <input type="hidden" value="{{ $drink->price_500 }}" name="old_price">
                             <input type="hidden" value="{{ $drink->price_1000 }}" name="new_price">
                             <button class="change_btn">хо ще</button>
@@ -634,6 +462,10 @@ $message = $_COOKIE['message'] ?? null;
                         <form action="{{ route('index.cart.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ $drink->id }}" name="id">
+                            <input type="hidden" value="{{ $_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_1000}"] }}" name="old_quantity">
+                            @if(isset($_COOKIE["name_cart_drink_{$drink->id}_{$drink->price_250}"]))
+                                <input type="hidden" value="{{ $_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_250}"] }}" name="new_quantity">
+                            @endif
                             <input type="hidden" value="{{ $drink->price_1000 }}" name="old_price">
                             <input type="hidden" value="{{ $drink->price_250 }}" name="new_price">
                             <button class="change_btn">хо менше</button>
@@ -649,12 +481,19 @@ $message = $_COOKIE['message'] ?? null;
             @endforeach
         </ul>
 		<button class="cart_btn">
-            <a href="/pay">
+            @if(!$cart_cost_from_cookie)
                 <ul class="total_price_cart" style="left: 0px">
                     <h4>Сплатити</h4>
                     <h5>{{$cart_cost_from_cookie}}₴</h5>
-		        </ul>
-            </a>
+                </ul>
+            @else
+                <a href="/pay">
+                    <ul class="total_price_cart" style="left: 0px">
+                        <h4>Сплатити</h4>
+                        <h5>{{$cart_cost_from_cookie}}₴</h5>
+                    </ul>
+                </a>
+            @endif
         </button>
 	</div>
 	<div class="teleport">

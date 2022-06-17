@@ -59,9 +59,17 @@ $cart_cost_from_cookie = $_COOKIE['cart_cost'] ?? 0;
                         <div class="nav">
                             <ul class="logo">
                                 <li>
-                                    <a class="logo_name" href="/">
-                                        <span style="color: #FFD912;">Lime</span>Time
-                                    </a>
+                                    @if(isset($_COOKIE['mob_pc_ind']))
+                                        @if($_COOKIE['mob_pc_ind'] === 'pc')
+                                            <a class="logo_name" href="/">
+                                                <span style="color: #FFD912;">Lime</span>Time
+                                            </a>
+                                        @else
+                                            <a class="logo_name" href="/mob">
+                                                <span style="color: #FFD912;">Lime</span>Time
+                                            </a>
+                                        @endif
+                                    @endif
                                 </li>
                                 <li>
                                     <a class="logo_phone" href="tel:+380967777777">+38 (096) <span style="color: #FFD912;">777 77 77</span></a>
@@ -153,9 +161,11 @@ $cart_cost_from_cookie = $_COOKIE['cart_cost'] ?? 0;
                                 <textarea  style=" height: 200px;" maxlength="220" name="text" placeholder=" ваш відгук, {{$login_from_cookie}} ;)"></textarea>
                             </li>
                             <button style=" top: 30px; left: 20px; width: 100px; font-size: 20px;" type="submit">хочу</button>
-                            <form action="/pay/cancel" method="POST">
-                                <button style=" top: 30px; background-color: red; left: 80px; width: 100px; font-size: 20px;" type="submit">не хочу</button>
-                            </form>
+                            <div style=" position: relative; height: 45px; left: 180px; width: 100px; top: -13px; border-radius: 5px; background-color: red; text-align: center">
+                                <a href="/review/cancel" style="position: relative; top: 10px; font-size: 18px; color: black; font-family: 'Montserrat'; font-weight: 400; letter-spacing: 0.00001em;">
+                                    не хочу
+                                </a>
+                            </div>
                             @if($errors)
                                 @foreach($errors as $error)
                                     <h2 style="position:relative; top: 50px; color: red; font-size: 20px;">ERROR: {{$error}}</h2>

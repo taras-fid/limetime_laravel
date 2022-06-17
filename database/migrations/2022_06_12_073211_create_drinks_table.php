@@ -21,8 +21,9 @@ return new class extends Migration
             $table->integer('price_250');
             $table->integer('price_500');
             $table->integer('price_1000');
-            $table->integer('stars')->nullable(true);
+            $table->float('stars')->nullable(true);
             $table->integer('rev_count')->nullable(true);
+            $table->timestamps();
             // rating (stars_of_rev*count of reviews/count of reviews)
         });
     }

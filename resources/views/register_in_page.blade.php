@@ -36,9 +36,17 @@
 		<page_4_bg>
 			<div class="log_in_page">
 				<div class="header_log">
-					<a href="/">
-						<span style="color: #FFD912;">Lime</span>Time
-					</a>
+                    @if(isset($_COOKIE['mob_pc_ind']))
+                        @if($_COOKIE['mob_pc_ind'] === 'pc')
+                            <a href="/">
+                                <span style="color: #FFD912;">Lime</span>Time
+                            </a>
+                        @else
+                            <a href="/mob">
+                                <span style="color: #FFD912;">Lime</span>Time
+                            </a>
+                        @endif
+                    @endif
 				</div>
                 <form action="/register/check" method="POST">
                     @csrf

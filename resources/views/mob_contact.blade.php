@@ -1,3 +1,12 @@
+<?php
+$login_from_cookie = $_COOKIE['login'] ?? null;
+$cart_cost_from_cookie = $_COOKIE['cart_cost'] ?? 0;
+if (isset($_COOKIE['mob_pc_ind'])){
+    unset($_COOKIE["mob_pc_ind"]);
+}setcookie("mob_pc_ind", 'mob', 0, '/');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,15 +64,30 @@
             </a>
             <ul class="log_cart">
                 <li>
-                    <a href="/login">
-                        <img src="img/login_icon.png" alt="">Увійти
-                    </a>
-                </li>
-                <li><button onclick="myFunction()" class="cart_btn">
-                        <a href="/mob/cart">
-                            <img src="img/2.png" alt="">180₴
+                    @if(!$login_from_cookie)
+                        <a href="/login">
+                            <img src="/img/login_icon.png" alt="">Увійти
                         </a>
-                    </button>
+                    @else
+                        <a href="/login">
+                            <img src="/img/login_icon.png" alt="">{{$login_from_cookie}}
+                        </a>
+                    @endif
+                </li>
+                <li>
+                    @if(!$cart_cost_from_cookie)
+                        <button onclick="myFunction()" class="cart_btn">
+                            <a href="/mob/cart">
+                                <img src="/img/2.png" alt="">0₴
+                            </a>
+                        </button>
+                    @else
+                        <button onclick="myFunction()" class="cart_btn">
+                            <a href="/mob/cart">
+                                <img src="/img/2.png" alt="">{{$cart_cost_from_cookie}}₴
+                            </a>
+                        </button>
+                    @endif
                 </li>
             </ul>
         </div>
@@ -117,7 +141,7 @@
                     <h3><a class="phone_footer" href="tel:+380967777777">+38 (096) <span style="color: #FFD912;">777 77 77</span></a></h3>
                     <div class="phone_call">
                         <h5>Замовити дзвінок</h5>
-                        <img src="img/footer_line.png" alt="line for div">
+                        <img src="/img/footer_line.png" alt="line for div">
                     </div>
                 </li>
                 <li class="adress">

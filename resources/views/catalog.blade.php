@@ -1,6 +1,9 @@
 <?php
-$login_from_cookie = isset($_COOKIE['login']) ? $_COOKIE['login'] : null;
-$cart_cost_from_cookie = isset($_COOKIE['cart_cost']) ? $_COOKIE['cart_cost'] : 0;
+$login_from_cookie = $_COOKIE['login'] ?? null;
+$cart_cost_from_cookie = $_COOKIE['cart_cost'] ?? 0;
+if (isset($_COOKIE['mob_pc_ind'])){
+    unset($_COOKIE["mob_pc_ind"]);
+}setcookie("mob_pc_ind", 'pc', 0, '/');
 ?>
 
 
@@ -122,7 +125,7 @@ $cart_cost_from_cookie = isset($_COOKIE['cart_cost']) ? $_COOKIE['cart_cost'] : 
 	<div class="page" id="page">
         <div class="logo_catalog">
             <img src="/img/line_sale.png" alt="line for sale`s logo">
-            <h3>КАТАЛОГ@if($drinks->isEmpty())ПУСТИЙ@endif</h3>
+            <h3>КАТАЛОГ@if($drinks->isEmpty()) ПУСТИЙ@endif</h3>
             <img src="/img/line_sale.png" alt="line for sale`s logo" style=" transform: rotate(-180deg);">
         </div>
         <ul class="positions">
@@ -132,7 +135,7 @@ $cart_cost_from_cookie = isset($_COOKIE['cart_cost']) ? $_COOKIE['cart_cost'] : 
                         <div class="pos_1">
                             <ul class="stars_row">
                                 @if($drink->stars)
-                                    @for($i = 0; $i < $drink->stars; $i++)
+                                    @for($i = 0; $i < intval($drink->stars); $i++)
                                         <li><img src="/img/star_icon.png" alt=""></li>
                                     @endfor
                                 @endif
@@ -240,51 +243,62 @@ $cart_cost_from_cookie = isset($_COOKIE['cart_cost']) ? $_COOKIE['cart_cost'] : 
                     </li>
                 @endif
                 @if(isset($_COOKIE["id_cart_drink_{$drink->id}_{$drink->price_500}"]))
-                        <li>
-                            <img src="/img/{{$_COOKIE["img_cart_drink_{$drink->id}_{$drink->price_500}"]}}" alt="item icon">
-                            <h4>{{$_COOKIE["name_cart_drink_{$drink->id}_{$drink->price_500}"]}}</h4>
-                            <h5>{{$_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_500}"]}} по 500 мл<br><br>{{$_COOKIE["price_cart_drink_{$drink->id}_{$drink->price_500}"]}}₴</h5>
-                            <form action="{{ route('cart.update') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" value="{{ $drink->id }}" name="id">
-                                <input type="hidden" value="{{ $drink->price_500 }}" name="old_price">
-                                <input type="hidden" value="{{ $drink->price_1000 }}" name="new_price">
-                                <button class="change_btn">хо ще</button>
-                            </form>
-                            <form action="{{ route('cart.remove') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" value="{{ $drink->id }}" name="id">
-                                <input type="hidden" value="{{ $drink->price_500 }}" name="price">
-                                <button class="del_btn">видалити</button>
-                            </form>
-                        </li>
-                    @endif
-                    @if(isset($_COOKIE["id_cart_drink_{$drink->id}_{$drink->price_1000}"]))
-                        <li>
-                            <img src="/img/{{$_COOKIE["img_cart_drink_{$drink->id}_{$drink->price_1000}"]}}" alt="item icon">
-                            <h4>{{$_COOKIE["name_cart_drink_{$drink->id}_{$drink->price_1000}"]}}</h4>
-                            <h5>{{$_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_1000}"]}} по 1000 мл<br><br>{{$_COOKIE["price_cart_drink_{$drink->id}_{$drink->price_1000}"]}}₴</h5>
-                            <form action="{{ route('cart.update') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" value="{{ $drink->id }}" name="id">
-                                <input type="hidden" value="{{ $drink->price_1000 }}" name="old_price">
-                                <input type="hidden" value="{{ $drink->price_250 }}" name="new_price">
-                                <button class="change_btn">хо менше</button>
-                            </form>
-                            <form action="{{ route('cart.remove') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" value="{{ $drink->id }}" name="id">
-                                <input type="hidden" value="{{ $drink->price_1000 }}" name="price">
-                                <button class="del_btn">видалити</button>
-                            </form>
-                        </li>
-                    @endif
+                    <li>
+                        <img src="/img/{{$_COOKIE["img_cart_drink_{$drink->id}_{$drink->price_500}"]}}" alt="item icon">
+                        <h4>{{$_COOKIE["name_cart_drink_{$drink->id}_{$drink->price_500}"]}}</h4>
+                        <h5>{{$_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_500}"]}} по 500 мл<br><br>{{$_COOKIE["price_cart_drink_{$drink->id}_{$drink->price_500}"]}}₴</h5>
+                        <form action="{{ route('cart.update') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $drink->id }}" name="id">
+                            <input type="hidden" value="{{ $drink->price_500 }}" name="old_price">
+                            <input type="hidden" value="{{ $drink->price_1000 }}" name="new_price">
+                            <button class="change_btn">хо ще</button>
+                        </form>
+                        <form action="{{ route('cart.remove') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $drink->id }}" name="id">
+                            <input type="hidden" value="{{ $drink->price_500 }}" name="price">
+                            <button class="del_btn">видалити</button>
+                        </form>
+                    </li>
+                @endif
+                @if(isset($_COOKIE["id_cart_drink_{$drink->id}_{$drink->price_1000}"]))
+                    <li>
+                        <img src="/img/{{$_COOKIE["img_cart_drink_{$drink->id}_{$drink->price_1000}"]}}" alt="item icon">
+                        <h4>{{$_COOKIE["name_cart_drink_{$drink->id}_{$drink->price_1000}"]}}</h4>
+                        <h5>{{$_COOKIE["quantity_cart_drink_{$drink->id}_{$drink->price_1000}"]}} по 1000 мл<br><br>{{$_COOKIE["price_cart_drink_{$drink->id}_{$drink->price_1000}"]}}₴</h5>
+                        <form action="{{ route('cart.update') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $drink->id }}" name="id">
+                            <input type="hidden" value="{{ $drink->price_1000 }}" name="old_price">
+                            <input type="hidden" value="{{ $drink->price_250 }}" name="new_price">
+                            <button class="change_btn">хо менше</button>
+                        </form>
+                        <form action="{{ route('cart.remove') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $drink->id }}" name="id">
+                            <input type="hidden" value="{{ $drink->price_1000 }}" name="price">
+                            <button class="del_btn">видалити</button>
+                        </form>
+                    </li>
+                @endif
             @endforeach
         </ul>
-        <ul class="total_price_cart">
-            <h4>Сплатити</h4>
-            <h5>{{$cart_cost_from_cookie}}₴</h5>
-        </ul>
+        <button class="cart_btn">
+            @if(!$cart_cost_from_cookie)
+                <ul class="total_price_cart" style="left: 0px">
+                    <h4>Сплатити</h4>
+                    <h5>{{$cart_cost_from_cookie}}₴</h5>
+                </ul>
+            @else
+                <a href="/pay">
+                    <ul class="total_price_cart" style="left: 0px">
+                        <h4>Сплатити</h4>
+                        <h5>{{$cart_cost_from_cookie}}₴</h5>
+                    </ul>
+                </a>
+            @endif
+        </button>
     </div>
     <div class="teleport">
         <a href="/mob">Використайте мобільну версію, будь ласка, вам буде зручніше</a>

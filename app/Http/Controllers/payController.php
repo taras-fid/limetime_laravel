@@ -18,6 +18,24 @@ class payController extends Controller
         $card_arr = str_split($card);
         $cvc_arr = str_split($cvc);
         $errors = array();
+        if(isset($_COOKIE['login'])) {
+            $user_obj = new User();
+            $users = $user_obj->all();
+            foreach ($users as $user) {
+                if($user->login == isset($_COOKIE['login'])) {
+                    if($bonus  > $user->bonus) {
+                        array_push($errors, 'ви не маєте стільки бонусів');
+                    }
+                    else {
+                        $user->bonus = $user->bonus - $bonus;
+                        $user->save();
+                    }
+                }
+            }
+        }
+        else {
+            $id_user = null;
+        }
         if(!$card) {
             array_push($errors, 'card num is empty');
         }
@@ -71,19 +89,18 @@ class payController extends Controller
             }
         }
         if (count($errors) === 0) {
-//            setcookie('login', $login, 0, '/');
-//            DB::table('users')->insert([
-//                [
-//                    'login' => $login,
-//                    'password' => $password,
-//                    "created_at" =>  Carbon::now(), # new \Datetime()
-//                    "updated_at" => Carbon::now(),  # new \Datetime()
-//                ],
-//            ]);
             return redirect()->route('review.host');
         }
         else {
-            return view('pay_page', ['errors' => $errors]);
+            if (isset($_COOKIE['login'])) {
+                $user_collection = DB::table('users')->where('login', $_COOKIE['login'])->get();
+                foreach ($user_collection as $item) {
+                    $user_bonus = $item->bonus;
+                    error_log("{$user_bonus}");
+                }
+            }
+            else {$user_bonus = null;}
+            return view('pay_page', ['errors' => $errors], ['user'=>$user_bonus]);
         }
     }
 }

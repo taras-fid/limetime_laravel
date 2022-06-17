@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('f_name', 20)->default('');
             $table->string('s_name', 20)->default('');
+            $table->double('bonus')->default(0);
             $table->string('number')->default('');
             $table->timestamps();
         });

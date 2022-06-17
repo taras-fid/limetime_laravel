@@ -26,7 +26,12 @@ class LoginController extends Controller
             if($user->login === $login) {
                 if($user->password === $password) {
                     setcookie('login', $login, 0, '/');
-                    return redirect()->route('index.host');
+                    if ($_COOKIE['mob_pc_ind'] === 'pc'){
+                        return redirect()->route('index.host');
+                    }
+                    else {
+                        return redirect()->route('mob.host');
+                    }
                 }
                 else {
                     array_push($errors, 'false password');

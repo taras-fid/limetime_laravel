@@ -43,7 +43,12 @@ class RegisterController extends Controller
                 ],
             ]);
 
-            return redirect()->route('index.host');
+            if ($_COOKIE['mob_pc_ind'] === 'pc'){
+                return redirect()->route('index.host');
+            }
+            else {
+                return redirect()->route('mob.host');
+            }
         }
         else {
             return view('register_in_page', ['errors' => $errors]);

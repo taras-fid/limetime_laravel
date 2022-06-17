@@ -1,3 +1,12 @@
+<?php
+$login_from_cookie = $_COOKIE['login'] ?? null;
+$cart_cost_from_cookie = $_COOKIE['cart_cost'] ?? 0;
+if (isset($_COOKIE['mob_pc_ind'])){
+    unset($_COOKIE["mob_pc_ind"]);
+}setcookie("mob_pc_ind", 'mob', 0, '/');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,15 +168,30 @@
             </a>
             <ul class="log_cart">
                 <li>
-                    <a href="/login">
-                        <img src="/img/login_icon.png" alt="">Увійти
-                    </a>
-                </li>
-                <li><button onclick="myFunction()" class="cart_btn">
-                        <a href="/mob/cart">
-                            <img src="/img/2.png" alt="">180₴
+                    @if(!$login_from_cookie)
+                        <a href="/login">
+                            <img src="/img/login_icon.png" alt="">Увійти
                         </a>
-                    </button>
+                    @else
+                        <a href="/login">
+                            <img src="/img/login_icon.png" alt="">{{$login_from_cookie}}
+                        </a>
+                    @endif
+                </li>
+                <li>
+                    @if(!$cart_cost_from_cookie)
+                        <button onclick="myFunction()" class="cart_btn">
+                            <a href="/mob/cart">
+                                <img src="/img/2.png" alt="">0₴
+                            </a>
+                        </button>
+                    @else
+                        <button onclick="myFunction()" class="cart_btn">
+                            <a href="/mob/cart">
+                                <img src="/img/2.png" alt="">{{$cart_cost_from_cookie}}₴
+                            </a>
+                        </button>
+                    @endif
                 </li>
             </ul>
         </div>

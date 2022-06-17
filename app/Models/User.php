@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 
+//    public function user_id(){
+//        return $this->hasMany(Order::class);
+//    }
 }

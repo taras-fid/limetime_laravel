@@ -1,3 +1,12 @@
+<?php
+$login_from_cookie = $_COOKIE['login'] ?? null;
+$cart_cost_from_cookie = $_COOKIE['cart_cost'] ?? 0;
+if (isset($_COOKIE['mob_pc_ind'])){
+    unset($_COOKIE["mob_pc_ind"]);
+}setcookie("mob_pc_ind", 'mob', 0, '/');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,334 +50,73 @@
 			</div>
 			<button onclick="myFunction()" class="menu_btn"></button>
 		</header>
-		<div class="positions_container">
-			<ul class="positions">
-				<li>
-					<div class="pos_1">
-						<ul class="stars_row">
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<ul class="pos_reviews">
-								<h5>
-									Відгуки: 32
-								</h5>
-								<img src="/img/line_reviews_pos.png" alt="">
-							</ul>
-						</ul>
-						<img class="img_for_pos" src="/img/lim1_img.png" alt="limonade 1">
-						<ul class="name_price_pos">
-							<li>
-								<h3>
-									Ананасовий лимонад
-								</h3>
-							</li>
-							<li>
-								<h4>
-									 <br>
-									30₴/50₴/70₴
-									 <br>
-								</h4>
-							</li>
-						</ul>
-						<ul class="btn_box">
-							<li>
-								<button class="buy_btn_pos_page2">придбати</button>
-							</li>
-							<li>
-								<button class="reserv_btn_pos_page2">відкласти</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="pos_2">
-						<ul class="stars_row">
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<ul class="pos_reviews">
-								<h5>
-									Відгуки: 26
-								</h5>
-								<img src="/img/line_reviews_pos.png" alt="">
-							</ul>
-						</ul>
-						<img class="img_for_pos" src="/img/lim2_img.png" alt="limonade 1">
-						<ul class="name_price_pos">
-							<li>
-								<h3>
-									Обліпиховий лимонад<br>з топінамбурою
-								</h3>
-							</li>
-							<li>
-								<h4>
-									 <br>
-									30₴/50₴/70₴
-									 <br>
-								</h4>
-							</li>
-						</ul>
-						<ul class="btn_box">
-							<li>
-								<button class="buy_btn_pos_page2">придбати</button>
-							</li>
-							<li>
-								<button class="reserv_btn_pos_page2">відкласти</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="pos_3">
-						<ul class="stars_row">
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<ul class="pos_reviews">
-								<h5>
-									Відгуки: 48
-								</h5>
-								<img src="/img/line_reviews_pos.png" alt="">
-							</ul>
-						</ul>
-						<img class="img_for_pos" src="/img/lim3_img.png" alt="limonade 1">
-						<ul class="name_price_pos">
-							<li>
-								<h3>
-									Лимонад с базиліком,<br>полуницею і огірком
-								</h3>
-							</li>
-							<li>
-								<h4>
-									 <br>
-									30₴/50₴/70₴
-									 <br>
-								</h4>
-							</li>
-						</ul>
-						<ul class="btn_box">
-							<li>
-								<button class="buy_btn_pos_page2">придбати</button>
-							</li>
-							<li>
-								<button class="reserv_btn_pos_page2">відкласти</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="pos_4">
-						<ul class="stars_row">
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<ul class="pos_reviews">
-								<h5>
-									Відгуки: 19
-								</h5>
-								<img src="/img/line_reviews_pos.png" alt="">
-							</ul>
-						</ul>
-						<img class="img_for_pos" src="/img/lim4_img.png" alt="limonade 1">
-						<ul class="name_price_pos">
-							<li>
-								<h3>
-									Апельсиново-<br>персиковий лимонад
-								</h3>
-							</li>
-							<li>
-								<h4>
-									 <br>
-									30₴/50₴/70₴
-									 <br>
-								</h4>
-							</li>
-						</ul>
-						<ul class="btn_box">
-							<li>
-								<button class="buy_btn_pos_page2">придбати</button>
-							</li>
-							<li>
-								<button class="reserv_btn_pos_page2">відкласти</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="positions_container">
-			<ul class="positions">
-				<li>
-					<div class="pos_1">
-						<ul class="stars_row">
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<ul class="pos_reviews">
-								<h5>
-									Відгуки: 32
-								</h5>
-								<img src="/img/line_reviews_pos.png" alt="">
-							</ul>
-						</ul>
-						<img class="img_for_pos" src="/img/lim1_img.png" alt="limonade 1">
-						<ul class="name_price_pos">
-							<li>
-								<h3>
-									Ананасовий лимонад
-								</h3>
-							</li>
-							<li>
-								<h4>
-									 <br>
-									30₴/50₴/70₴
-									 <br>
-								</h4>
-							</li>
-						</ul>
-						<ul class="btn_box">
-							<li>
-								<button class="buy_btn_pos_page2">придбати</button>
-							</li>
-							<li>
-								<button class="reserv_btn_pos_page2">відкласти</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="pos_2">
-						<ul class="stars_row">
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<ul class="pos_reviews">
-								<h5>
-									Відгуки: 26
-								</h5>
-								<img src="/img/line_reviews_pos.png" alt="">
-							</ul>
-						</ul>
-						<img class="img_for_pos" src="/img/lim2_img.png" alt="limonade 1">
-						<ul class="name_price_pos">
-							<li>
-								<h3>
-									Обліпиховий лимонад<br>з топінамбурою
-								</h3>
-							</li>
-							<li>
-								<h4>
-									 <br>
-									30₴/50₴/70₴
-									 <br>
-								</h4>
-							</li>
-						</ul>
-						<ul class="btn_box">
-							<li>
-								<button class="buy_btn_pos_page2">придбати</button>
-							</li>
-							<li>
-								<button class="reserv_btn_pos_page2">відкласти</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="pos_3">
-						<ul class="stars_row">
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<ul class="pos_reviews">
-								<h5>
-									Відгуки: 48
-								</h5>
-								<img src="/img/line_reviews_pos.png" alt="">
-							</ul>
-						</ul>
-						<img class="img_for_pos" src="/img/lim3_img.png" alt="limonade 1">
-						<ul class="name_price_pos">
-							<li>
-								<h3>
-									Лимонад с базиліком,<br>полуницею і огірком
-								</h3>
-							</li>
-							<li>
-								<h4>
-									 <br>
-									30₴/50₴/70₴
-									 <br>
-								</h4>
-							</li>
-						</ul>
-						<ul class="btn_box">
-							<li>
-								<button class="buy_btn_pos_page2">придбати</button>
-							</li>
-							<li>
-								<button class="reserv_btn_pos_page2">відкласти</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="pos_4">
-						<ul class="stars_row">
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<li><img src="/img/star_icon.png" alt=""></li>
-							<ul class="pos_reviews">
-								<h5>
-									Відгуки: 19
-								</h5>
-								<img src="/img/line_reviews_pos.png" alt="">
-							</ul>
-						</ul>
-						<img class="img_for_pos" src="/img/lim4_img.png" alt="limonade 1">
-						<ul class="name_price_pos">
-							<li>
-								<h3>
-									Апельсиново-<br>персиковий лимонад
-								</h3>
-							</li>
-							<li>
-								<h4>
-									 <br>
-									30₴/50₴/70₴
-									 <br>
-								</h4>
-							</li>
-						</ul>
-						<ul class="btn_box">
-							<li>
-								<button class="buy_btn_pos_page2">придбати</button>
-							</li>
-							<li>
-								<button class="reserv_btn_pos_page2">відкласти</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</div>
+        @if($drinks->isEmpty())
+            <h2>
+                КАТАЛОГ ПУСТИЙ
+            </h2>
+        @else
+            <div class="positions_container">
+                <ul class="positions">
+                @foreach($drinks as $drink)
+                    <li>
+                        <div class="pos_1">
+                            <ul class="stars_row">
+                                @if($drink->stars)
+                                    @for($i = 0; $i < intval($drink->stars); $i++)
+                                        <li><img src="/img/star_icon.png" alt=""></li>
+                                    @endfor
+                                @endif
+                                <ul class="pos_reviews">
+                                    @if($drink->rev_count)
+                                        <h5>
+                                            Відгуки: {{$drink->rev_count}}
+                                        </h5>
+                                        <img src="/img/line_reviews_pos.png" alt="">
+                                    @else
+                                        <h5>
+                                            Відгуки: 0
+                                        </h5>
+                                        <img src="/img/line_reviews_pos.png" alt="">
+                                    @endif
+                                </ul>
+                            </ul>
+                            <img class="img_for_pos" src="/img/{{$drink->img_name}}" alt="limonade 1">
+                            <ul class="name_price_pos">
+                                <li>
+                                    <h3>
+                                        {{$drink->name}}
+                                    </h3>
+                                </li>
+                                <li>
+                                    <h4>
+                                        <br>
+                                        {{$drink->price_250}}₴/{{$drink->price_500}}₴/{{$drink->price_1000}}₴
+                                        <br>
+                                    </h4>
+                                </li>
+                            </ul>
+                            <ul class="btn_box">
+                                <li>
+                                    <form action="{{ route('mob.cart.add') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" value="{{ $drink->id }}" name="id">
+                                        <input type="hidden" value="{{ $drink->name }}" name="name">
+                                        <input type="hidden" value="{{ $drink->price_250 }}" name="price">
+                                        <input type="hidden" value="{{ $drink->img_name }}" name="img_name">
+                                        <input type="hidden" value="1" name="quantity">
+                                        <button class="buy_btn_pos_page2">придбати</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <button class="reserv_btn_pos_page2">відкласти</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                @endforeach
+                </ul>
+            </div>
+        @endif
 	</div>
     <div class="menu" id="menu">
         <div class="logo_menu">
@@ -377,15 +125,30 @@
             </a>
             <ul class="log_cart">
                 <li>
-                    <a href="/login">
-                        <img src="/img/login_icon.png" alt="">Увійти
-                    </a>
-                </li>
-                <li><button onclick="myFunction()" class="cart_btn">
-                        <a href="/mob/cart">
-                            <img src="/img/2.png" alt="">180₴
+                    @if(!$login_from_cookie)
+                        <a href="/login">
+                            <img src="/img/login_icon.png" alt="">Увійти
                         </a>
-                    </button>
+                    @else
+                        <a href="/login">
+                            <img src="/img/login_icon.png" alt="">{{$login_from_cookie}}
+                        </a>
+                    @endif
+                </li>
+                <li>
+                    @if(!$cart_cost_from_cookie)
+                        <button onclick="myFunction()" class="cart_btn">
+                            <a href="/mob/cart">
+                                <img src="/img/2.png" alt="">0₴
+                            </a>
+                        </button>
+                    @else
+                        <button onclick="myFunction()" class="cart_btn">
+                            <a href="/mob/cart">
+                                <img src="/img/2.png" alt="">{{$cart_cost_from_cookie}}₴
+                            </a>
+                        </button>
+                    @endif
                 </li>
             </ul>
         </div>

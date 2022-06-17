@@ -1,7 +1,6 @@
 <?php
-$login_from_cookie = isset($_COOKIE['login']) ? $_COOKIE['login'] : null;
-$cart_cost_from_cookie = isset($_COOKIE['cart_cost']) ? $_COOKIE['cart_cost'] : 0;
-$bonus = 50;
+$login_from_cookie = $_COOKIE['login'] ?? null;
+$cart_cost_from_cookie = $_COOKIE['cart_cost'] ?? 0;
 ?>
 
 <!DOCTYPE html>
@@ -46,9 +45,17 @@ $bonus = 50;
                         <div class="nav">
                             <ul class="logo">
                                 <li>
-                                    <a class="logo_name" href="/">
-                                        <span style="color: #FFD912;">Lime</span>Time
-                                    </a>
+                                    @if(isset($_COOKIE['mob_pc_ind']))
+                                        @if($_COOKIE['mob_pc_ind'] === 'pc')
+                                            <a class="logo_name" href="/">
+                                                <span style="color: #FFD912;">Lime</span>Time
+                                            </a>
+                                        @else
+                                            <a class="logo_name" href="/mob">
+                                                <span style="color: #FFD912;">Lime</span>Time
+                                            </a>
+                                        @endif
+                                    @endif
                                 </li>
                                 <li>
                                     <a class="logo_phone" href="tel:+380967777777">+38 (096) <span style="color: #FFD912;">777 77 77</span></a>
@@ -132,8 +139,9 @@ $bonus = 50;
                     @if($login_from_cookie)
                         <ul class="log_in_box">
                             <h2 class="pay_title">Реквізити оплати</h2>
+                            <h5 style="color: white; top: 0px; left: -160px; font-size: 13px">ви маєте {{$user}} бонусів</h5>
                             <li>
-                                <input type="number" min="1" max="{{$bonus}}" name="bonus" placeholder="₴ Впишіть сюди к-сть бонусів" />
+                                <input style="left: 0px; width: 300px; font-size: 13px" type="number" min="1" max="{{$cart_cost_from_cookie}}" name="bonus" placeholder=" Впишіть сюди к-сть бонусів (1 бонус = 1₴)" />
                             </li>
                             <li>
                                 <img src="/img/card_icon.png" alt="card icon">
